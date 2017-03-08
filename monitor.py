@@ -47,6 +47,17 @@ def main():
     #pprint(data)
     print rsp.text
 
+    telegram_url = "https://api.telegram.org/bot349444036:AAHeHPdTxbF-HPCTVxaRD8FH-PkTVAXZtRE"
+    chat_id = "@RoboticFarm"
+    photo_file =  "http://ireullin.asuscomm.com/kaoru/robotic_farm/{0}_{1}.jpg".format(groupId,seq)
+    rsp = requests.post(telegram_url+"/sendPhoto", data={"chat_id":chat_id, 'photo': photo_file} )
+    #print rsp.text
+
+
+    telgram_msg = telegram_url+"/sendMessage?chat_id="+chat_id+"&text="+json.dumps(data)
+    rsp = requests.get(telgram_msg)
+    #print rsp.text
+
 
 
 
